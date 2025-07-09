@@ -1,4 +1,4 @@
-name: yt-audio-upload
+name: upload_to_databricks-deploy
 entrypoint: extract_audio.py:youtube_to_databricks_flow
 
 pull:
@@ -10,6 +10,9 @@ pull:
   - prefect.deployments.steps.pip_install_requirements:
       directory: "{{ clone-step.directory }}"
       requirements_file: requirements.txt
-    
+
 deployments:
-    parameters: {}
+  - name: upload_to_databricks-deploy
+    parameters:
+      host: ""
+      token: ""
