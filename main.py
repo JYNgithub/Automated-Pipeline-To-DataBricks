@@ -9,6 +9,7 @@ from databricks.sdk.service.workspace import ImportFormat
 #####################################################
 
 # Load confidential information from .env file (if running locally)
+# On Prefect Cloud, a prompt will ask for these values
 load_dotenv()
 
 # Set up project root and cookies path
@@ -49,7 +50,7 @@ def upload_to_databricks(local_file_path, host, token):
 
 
 @flow
-def upload_to_databricks_flow(host: str, token: str):
+def upload_to_databricks_flow(host, token):
     try:
         upload_to_databricks(audio_file, host, token)
     except Exception as e:
