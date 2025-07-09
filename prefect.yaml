@@ -1,0 +1,12 @@
+name: yt-audio-upload
+entrypoint: extract_audio.py:youtube_to_databricks_flow
+
+pull:
+  - prefect.deployments.steps.git_clone:
+      id: clone-step
+      repository: https://github.com/JYNgithub/Project-Extract-Audio-To-Databricks
+      branch: main
+
+  - prefect.deployments.steps.pip_install_requirements:
+      directory: "{{ clone-step.directory }}"
+      requirements_file: requirements.txt
