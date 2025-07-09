@@ -8,7 +8,7 @@ from databricks.sdk.service.workspace import ImportFormat
 # Configuration
 #####################################################
 
-# Load confidential information from .env file
+# Load confidential information from .env file (if running locally)
 load_dotenv()
 
 # Set up project root and cookies path
@@ -23,7 +23,7 @@ save_audio_path = "/Workspace/Users/chongjinjye@gmail.com/audio.m4a"
 #####################################################
 
 @task
-def upload_to_databricks(local_file_path: str):
+def upload_to_databricks(local_file_path: str, host: str = None, token: str = None):
     
     print("Uploading audio to Databricks workspace...")
     try:
@@ -51,7 +51,7 @@ def upload_to_databricks(local_file_path: str):
 
 
 @flow
-def upload_to_databricks_flow():
+def upload_to_databricks_flow(host: str = None, token: str = None):
     try:
         upload_to_databricks(audio_file)
     except Exception as e:
