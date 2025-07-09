@@ -17,7 +17,7 @@ project_root = os.path.dirname(os.path.abspath(__file__))
 audio_file = os.path.join(project_root, "audio.m4a")
 
 # Set up target path in Databricks workspace
-save_audio_path = "/Workspace/Users/chongjinjye@gmail.com/audio.m4a"
+save_audio_path = "/Workspace/TargetFolder/audio.m4a"
 
 #####################################################
 # Prefect Tasks and Flows
