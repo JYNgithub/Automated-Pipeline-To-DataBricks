@@ -57,4 +57,4 @@ def upload_to_databricks_flow(host: str, token: str):
 
 
 if __name__ == "__main__":
-    upload_to_databricks_flow(host, token)
+    upload_to_databricks_flow(" ", " ")
