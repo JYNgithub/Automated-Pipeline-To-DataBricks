@@ -4,7 +4,7 @@ entrypoint: extract_audio.py:youtube_to_databricks_flow
 pull:
   - prefect.deployments.steps.git_clone:
       id: clone-step
-      repository: https://github.com/JYNgithub/Project-Extract-Audio-To-Databricks
+      repository: https://github.com/JYNgithub/Automated-Pipeline-To-DataBricks
       branch: main
 
   - prefect.deployments.steps.pip_install_requirements:
