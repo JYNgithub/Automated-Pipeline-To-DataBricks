@@ -51,7 +51,7 @@ def upload_to_databricks(local_file_path: str, host: str, token: str):
 
 
 @flow
-def upload_to_databricks_flow(host: str, token: str):
+def upload_to_databricks_flow(host: str = None, token: str = None):
     try:
         upload_to_databricks(audio_file, host, token)
     except Exception as e:
