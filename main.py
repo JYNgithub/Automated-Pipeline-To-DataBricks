@@ -23,12 +23,10 @@ save_audio_path = "/Workspace/Users/chongjinjye@gmail.com/audio.m4a"
 #####################################################
 
 @task
-def upload_to_databricks(local_file_path: str, host: str, token: str):
+def upload_to_databricks(local_file_path, host, token):
     
     print("Uploading audio to Databricks workspace...")
     try:
-        host = os.getenv("DATABRICKS_HOST")
-        token = os.getenv("DATABRICKS_TOKEN")
         if not host or not token:
             raise ValueError("Databricks credentials not set in environment.")
     
@@ -51,7 +49,7 @@ def upload_to_databricks(local_file_path: str, host: str, token: str):
 
 
 @flow
-def upload_to_databricks_flow(host: str = None, token: str = None):
+def upload_to_databricks_flow(host: str, token: str):
     try:
         upload_to_databricks(audio_file, host, token)
     except Exception as e:

@@ -10,3 +10,6 @@ pull:
   - prefect.deployments.steps.pip_install_requirements:
       directory: "{{ clone-step.directory }}"
       requirements_file: requirements.txt
+    
+deployments:
+    parameters: {}
